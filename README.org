@@ -11,9 +11,9 @@ emacs init file (make sure to change the ansicl repo directory):
 #+begin_src emacs-lisp
   ;; Make sure emacs can find the info files
   (use-package info
-  :config
-      (info-initialize)
-      (push "/Users/jeff/src/personal/ansicl.info/" Info-directory-list))
+    :config
+    (info-initialize)
+    (push "/Users/jeff/src/personal/ansicl.info/" Info-directory-list))
 
   ;; Also set up info-look so that you can easily search for lisp symbols
   (use-package info-look
