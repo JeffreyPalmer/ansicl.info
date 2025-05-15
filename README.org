@@ -1,0 +1,29 @@
+#+TITLE: ansicl.info
+
+Info version of the Draft ANSI Common Lisp standard, archived here for
+easy use in the future.
+
+The original text packaged here was taken from [[https://github.com/jwiegley/ready-lisp][John Wiegley's Ready Lisp repository]].
+
+To use this, clone the repository and then add the following to your
+emacs init file (make sure to change the ansicl repo directory):
+
+#+begin_src emacs-lisp
+  ;; Make sure emacs can find the info files
+  (use-package info
+  :config
+      (info-initialize)
+      (push "/Users/jeff/src/personal/ansicl.info/" Info-directory-list))
+
+  ;; Also set up info-look so that you can easily search for lisp symbols
+  (use-package info-look
+    :config
+    (add-to-list 'Info-default-directory-list "<ansicl repo directory>")
+    (info-lookup-add-help
+     :mode 'lisp-mode
+     :regexp "[^][()'\" \t\n]+"
+     :ignore-case t
+     :doc-spec '(("(ansicl)Symbol Index" nil nil nil))))
+#+end_src
+
+TODO: Figure out how to properly package this so this chicanery isn't necessary.
